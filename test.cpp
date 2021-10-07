@@ -84,6 +84,46 @@ void as2backw(vector<vector<string> > &g,int row,int col,string pa){
     g[row-2][col-2]=pa;
     return ;
 }
+void as3forleft(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row+2][col+1]=pa;
+    return ;
+}
+void as3forright(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row+2][col-1]=pa;
+    return ;
+}
+void as3backleft(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row-2][col+1]=pa;
+    return ;
+}
+void as3backright(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row-2][col-1]=pa;
+    return ;
+}
+void as3leftfor(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row+1][col+2]=pa;
+    return ;
+}
+void as3leftback(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row-1][col+2]=pa;
+    return ;
+}
+void as3rightfor(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row+1][col-2]=pa;
+    return ;
+}
+void as3rightback(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row-1][col-2]=pa;
+    return ;
+}
 void alef(vector<vector<string> > &g,int row,int col,string pa){
     g[row][col]=" - ";
     g[row][col+1]=pa;
@@ -164,6 +204,46 @@ void bs2backw(vector<vector<string> > &g,int row,int col,string pa){
     g[row+2][col+2]=pa;
     return ;
 }
+void bs3forleft(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row-2][col-1]=pa;
+    return ;
+}
+void bs3forright(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row-2][col+1]=pa;
+    return ;
+}
+void bs3backleft(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row+2][col-1]=pa;
+    return ;
+}
+void bs3backright(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row+2][col+1]=pa;
+    return ;
+}
+void bs3leftfor(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row-1][col-2]=pa;
+    return ;
+}
+void bs3leftback(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row+1][col-2]=pa;
+    return ;
+}
+void bs3rightfor(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row-1][col+2]=pa;
+    return ;
+}
+void bs3rightback(vector<vector<string> > &g,int row,int col,string pa){
+    g[row][col]=" - ";
+    g[row+1][col+2]=pa;
+    return ;
+}
 int main(){
     vector<vector<string> > g(5,vector<string> (5));
     for(int i=0;i<5;i++){
@@ -193,22 +273,25 @@ int main(){
     cin>>t;
     if(t=="F"){
         bool en=false;
-        //set h1 of A
-        //set h2 of A
-        //set h1 of B
-        //set h2 of B
         cout<<"Set H1 of A"<<endl;
         string ha1;
         cin>>ha1;
         cout<<"Set H2 of A"<<endl;
         string ha2;
         cin>>ha2;
+        cout<<"Set H3 of A"<<endl;
+        string ha3;
+        cin>>ha3;
         cout<<"Set H1 of B"<<endl;
         string hb1;
         cin>>hb1;
         cout<<"Set H2 of B"<<endl;
         string hb2;
         cin>>hb2;
+        cout<<"Set H3 of B"<<endl;
+        string hb3;
+        cin>>hb3;
+
         while(en==false){
             cout<<"A turn"<<endl;
             string f;
@@ -267,6 +350,14 @@ int main(){
                     int row=ro(g,temp);
                     int col=co(g,temp);
                     as2backw(g,row,col,temp);
+                }
+            }
+            else if(temp==ha3){
+                if(f[2]=='L'){
+                    temp+=" ";
+                    int row=ro(g,temp);
+                    int col=co(g,temp);
+                    as3forleft(g,row,col,temp);
                 }
             }
             else{
@@ -361,6 +452,14 @@ int main(){
                     int row=ro(g,temp);
                     int col=co(g,temp);
                     bs2backw(g,row,col,temp);
+                }
+            }
+            else if(hb3==temp){
+                if(d[2]=='L'){
+                    temp+=" ";
+                    int row=ro(g,temp);
+                    int col=co(g,temp);
+                    bs3forleft(g,row,col,temp);
                 }
             }
             else{
