@@ -108,7 +108,7 @@ int main(){
         }
         cout<<endl;
     }
-    cout<<"Press 'F' to start"<<endl;
+    cout<<"Press F to start"<<endl;
     string t;
     cin>>t;
     if(t=="F"){
